@@ -4,7 +4,7 @@ Bus
 - belongs_to :driver
 - has_many :shifts
 - has_many :drivers, through :shifts
-- has_many :bus_trips, through shifts
+- has_many :bus_trips, through :shifts
 - bus_model
 - license_plate
 
@@ -17,7 +17,7 @@ Driver
 - drivers_license_number
 - expiry_date
 
-Shift
+Shift *join table joins drivers and buses
 - belongs_to :driver
 - belongs_to :bus
 - has_many :bus_trips
@@ -26,7 +26,7 @@ Shift
 - login_time
 - logout_time
 
-Bus_Trip
+Bus_Trip *join table joins users and shifts
 - belongs_to :shift
 - belongs_to :user
 - trip_start_time
@@ -35,7 +35,7 @@ Bus_Trip
 - end_location
 - price
 
-User *the one that schedules the rides
+User
 - has_many :bus_trips
 - username
 - email
