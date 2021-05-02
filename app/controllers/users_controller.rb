@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         #log them in
         session[:user_id] = @user.id
         #redirect to show page
-        redirect_to @user, :alert => "You Just signed Up"
+        redirect_to @user
        else
         render :new
        end
@@ -19,7 +19,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.find_by_id(params[:id])
+        redirect_to '/' if !@user
     end
 
     private #some are permitted and some are not
