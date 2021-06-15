@@ -1,0 +1,24 @@
+<h1>New Trip!</h1>
+
+<%= form_for(@bus_trip) do |f| %>
+    <%= f.label :trip_start_time %>
+    <%= f.datetime_select :trip_start_time, :ampm => true, :minute_step => 15 %>
+
+    <%= f.label :trip_end_time %>
+    <%= f.datetime_select :trip_end_time, :ampm => true, :minute_step => 15 %>
+
+    <%= f.label :start_location %>
+    <%= f.text_field :start_location %>
+
+    <%= f.label :end_location %>
+    <%= f.text_field :end_location %>
+
+    <% if ((params[:trip_end_time] - @bus_trip[:trip_start_time]) /60).to_i <= 60 %>
+        <%= f.number_field :price, :value => 10 %>
+    <% else %>
+    <%= f.number_field :price, :value => 50 %>
+    <% end %>
+
+    <%= f.submit %>
+
+<% end %>
