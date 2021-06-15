@@ -13,12 +13,6 @@
     <%= f.label :end_location %>
     <%= f.text_field :end_location %>
 
-    <% if ((params[:trip_end_time] - @bus_trip[:trip_start_time]) /60).to_i <= 60 %>
-        <%= f.number_field :price, :value => 10 %>
-    <% else %>
-    <%= f.number_field :price, :value => 50 %>
-    <% end %>
-
     <%= f.submit %>
 
 <% end %>
