@@ -1,7 +1,6 @@
 Bus App
 
 Bus
-- belongs_to :driver
 - has_many :shifts
 - has_many :drivers, through :shifts
 - has_many :bus_trips, through :shifts

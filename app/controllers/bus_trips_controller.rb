@@ -20,9 +20,9 @@ class BusTripsController < ApplicationController
         end
         start_time = @bus_trip[:trip_start_time]
         end_time = @bus_trip[:trip_end_time]
-        
-        @bus_trip[:trip_start_time] = start_time.to_datetime
-        @bus_trip[:trip_end_time] = end_time.to_datetime
+        #CONVERSION STILL A PROBLEM
+        @bus_trip[:trip_start_time] = start_time.to_date
+        @bus_trip[:trip_end_time] = end_time.to_date
         binding.pry
        if @bus_trip.save
         #redirect to show page
