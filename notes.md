@@ -1,3 +1,4 @@
+https://www.vertabelo.com/blog/calling-all-cabs-a-database-model-for-a-taxi-service/
 Bus App
 
 Bus
@@ -20,6 +21,7 @@ Shift *join table joins drivers and buses
 - belongs_to :driver
 - belongs_to :bus
 - has_many :bus_trips
+- has_many :users, through :bus_trips
 - shift_start_time
 - shift_end_time
 - login_time
@@ -36,6 +38,7 @@ Bus_Trip *join table joins users and shifts
 
 User
 - has_many :bus_trips
+- has_many :shifts, through bus_trips
 - username
 - email
 - password_digest
